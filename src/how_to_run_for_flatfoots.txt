@@ -1,0 +1,33 @@
+How to run the scripts for dumb, flat-footed buckaroos like Collin:
+
+1. DL the neural_network_for_handwriting
+2. change directories into the src sub_directory
+
+--> if you want to run it on the digits from mnist do this:
+
+3. in your Command line write:
+   >>> import mnist_loader
+   >>> training_data, validation_data, test_data = \
+	... mnist_loader.load_data_wrapper()
+4. May take like 20-25 seconds
+5. then in your command line write:
+   >>> import network
+   >>> net = network.Network([784, 30, 10])
+   >>> net.SGD(training_data, 30, 10, 3.0, test_data=test_data)
+6. then each epoch will start printing, and each one corresponds
+   to how many digits it got correct so 9528/10000 is 95.28%
+
+--> if you want to run it on the letters from our data do this:
+
+3. 3. in your Command line write:
+   >>> import workingextraction
+   >>> training_data, validation_data, test_data = \
+	... workingextraction.extractfeatures()
+4. May take like 20-25 seconds
+5. then in your command line write:
+   >>> import network
+   >>> net = network.Network([12500, 100, 26])
+   >>> net.SGD(training_data, 30, 100, 3.0, test_data=test_data)
+6. then each epoch will start printing, and each one corresponds
+   to how many digits it got correct so obviously there is smtn
+   up with a section of my script that I need to figure out.
